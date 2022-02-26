@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this.body = GetComponent<Rigidbody2D>();
         this.animator = GetComponent<Animator>();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
             this.grounded = true;
         }
     }
+
+    
 
     // Update is called once per frame
     void Update()
