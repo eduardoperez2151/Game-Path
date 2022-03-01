@@ -44,11 +44,11 @@ public class PlayerMovement : MonoBehaviour
         //Flip player horizontal
         if (this.horizontalInput > 0.01f)
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(1f, 1f, 1);
         }
         else if (this.horizontalInput < -0.01f)
         {
-            transform.localScale = new Vector3(-.5f, .5f, 1);
+            transform.localScale = new Vector3(-1f, 1f, 1);
         }
 
 
@@ -98,12 +98,12 @@ public class PlayerMovement : MonoBehaviour
             if (horizontalInput == 0)
             {
 
-                this.body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 20, 0);
+                this.body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) *20, 0);
                 transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
             else
             {
-                this.body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * climbPower, 6);
+                this.body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * climbPower, climbPower * 2);
             }
 
             this.wallJumpCoolDown = 0;
