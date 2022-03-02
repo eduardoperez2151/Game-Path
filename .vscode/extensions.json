@@ -3,6 +3,7 @@
         "unity.unity-debug",
         "ms-dotnettools.csharp",
         "fudge.auto-using",
-        "k--kato.docomment"
+        "k--kato.docomment",
+        "kleber-swf.unity-code-snippets"
     ]
 }
