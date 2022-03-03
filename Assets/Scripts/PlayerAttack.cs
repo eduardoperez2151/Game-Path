@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         this.animator.SetTrigger("attack");
         this.cooldownTimer = 0;
         this.fireballs[FindFireball()].transform.position = this.firePointTransform.position;
-        this.fireballs[FindFireball()].GetComponent<Proyectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        this.fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
 
     private int FindFireball()
