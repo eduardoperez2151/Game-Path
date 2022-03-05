@@ -131,4 +131,9 @@ public class PlayerMovement : MonoBehaviour
         return this.horizontalInput == 0 && IsGrounded() && !OnWall();
     }
 
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
 }
