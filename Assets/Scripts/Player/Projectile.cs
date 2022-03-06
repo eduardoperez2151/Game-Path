@@ -39,11 +39,17 @@ public class Projectile : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collsion)
     {
         this.hit = true;
         this.boxCollider2D.enabled = false;
         this.animator.SetTrigger("explode");
+
+
+        if (collsion.tag == "Enemy")
+        {
+            collsion.GetComponent<Health>().TakeDamage(1);
+        }
     }
 
     public void SetDirection(float direction)

@@ -44,16 +44,21 @@ public class Health : MonoBehaviour
             print("Current HEalth");
             print(this.CurrentHealth.ToString());
             this.animator.SetTrigger("hurt");
-              StartCoroutine(this.Invulnerability());
+            StartCoroutine(this.Invulnerability());
             return;
         }
 
         if (!this.isDead)
         {
-            print("DEAD");
-            print(this.CurrentHealth.ToString());
             this.animator.SetTrigger("die");
-            GetComponent<PlayerMovement>().enabled = false;
+            if (GetComponent<PlayerMovement>())
+                GetComponent<PlayerMovement>().enabled = false;
+
+            if (GetComponentInParent<EnemyPatrol>() != null)
+                GetComponentInParent<EnemyPatrol>().enabled = false;
+
+            if (GetComponent<Enemy>())
+                GetComponent<Enemy>().enabled = false;
             this.isDead = true;
         }
     }
@@ -70,5 +75,10 @@ public class Health : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(10, 11, false);
+    }
+
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
